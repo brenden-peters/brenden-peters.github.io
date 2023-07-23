@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `bpeters dot app`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.bpeters.app`
   },
   plugins: ["gatsby-plugin-postcss", "gatsby-plugin-mdx", {
     resolve: 'gatsby-source-filesystem',
