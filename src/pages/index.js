@@ -128,7 +128,7 @@ const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
-        Welcome!
+        Welcome! 👋
         <br />
 	    <br />
         <span style={headingAccentStyles}>Make yourself at home :)</span>
