@@ -130,6 +130,7 @@ const IndexPage = () => {
       <h1 style={headingStyles}>
         Welcome!
         <br />
+	    <br />
         <span style={headingAccentStyles}>Make yourself at home :)</span>
       </h1>
       <p style={paragraphStyles}>
