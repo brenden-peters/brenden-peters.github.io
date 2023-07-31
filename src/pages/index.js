@@ -1,4 +1,5 @@
 import * as React from "react"
+import Collapsible from "react-collapsible";
 import "../styles/styles.css"
 
 const pageStyles = { // #bfff96 base page color, #002a15 base text color -- maybe try #FFF4DB as well
@@ -40,10 +41,37 @@ const keywordStyle = {
 	color: "#03592e",
 }
 
-const greetingMessage = ( 
+
+const greeting = {
+	message: "Hi, I'm Brenden.",
+	
+}
+
+const expandableBlurbs = [
+	{
+		triggerText: "Interested in talking about native iOS development?",
+		blurbText: "Lorem ipsum dolor emmett otter",
+	},
+	{
+		triggerText: "Curious about the secrets to making a perfect deli-style sandwich?",
+		blurbText: "Lorem ipsum dolor emmett otter",
+	},
+	{
+		triggerText: "Looking to connect with talented folks with skills and interests outside my wheelhouse?",
+		blurbText: "Lorem ipsum dolor emmett otter",
+	},
+]
+
+const contact = { /*break out contact blurb into own component for reuse across other pages*/
+	cta: "Let's chat!",
+	email: "send me an email",
+	linkedIn: "reach out on LinkedIn",
+}
+
+const greetingHeader = ( 
 	<div>
 		<h1 style={headingStyle}>
-			Hi, I'm Brenden.
+			{greeting.message}
 		</h1>
 	</div>
 )
@@ -52,18 +80,24 @@ const greetingMessage = (
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
-      	{greetingMessage}
+      	{greetingHeader}
       <p style={paragraphStyles}>
 	  	I build software, tinker with hardware, and enjoy growing (and cooking) tasty food. {/*'software' links to github?*/}
       </p>
 	  <p>
 		Are you...
 		<ul style={listStyle}>
-			<li style={listItemStyle}>Interested in talking about <code style={keywordStyle}>native iOS development</code> or <code style={keywordStyle}>virtual and augmented reality</code>?</li> {/*include link to small briefing about iOS app domains and expertise?*/}
-			<li style={listItemStyle}>Curious about the secrets to making a <code style={keywordStyle}>perfect deli-style sandwich</code>?</li>
-			<li style={listItemStyle}>Looking to connect with talented folks with skills and interests outside my wheelhouse?</li>
+			{expandableBlurbs.map(blurb=> (
+				<li style={listItemStyle}>
+				<Collapsible trigger={blurb.triggerText}>
+					<p>
+						{blurb.blurbText}
+					</p>
+				</Collapsible>
+				</li>
+			))}
 		</ul>
-		Let's chat! You can <a href="mailto:contact@bpeters.app">send me an email</a> or <a href="https://www.linkedin.com/in/brenden-peters/">reach out on LinkedIn</a> {/*expandable contact details section for screen readers? -- what's the most accessible way*/}
+		{contact.cta} You can <a href="mailto:contact@bpeters.app">{contact.email}</a> or <a href="https://www.linkedin.com/in/brenden-peters/">{contact.linkedIn}</a> {/*expandable contact details section for screen readers? -- what's the most accessible way*/}
 	  </p>
     </main>
   )
@@ -72,5 +106,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => (
-	<title>Welcome!</title> // parameterize -- possible to access other files? or define all params in this file 
+	<title>Welcome!</title> 
 )
