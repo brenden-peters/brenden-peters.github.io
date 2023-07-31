@@ -31,6 +31,7 @@ const listStyle = {
 	paddingTop: 5,
 	paddingBottom: 5,
 	paddingLeft: -5,
+	paddingRight: 15,
 	backgroundColor: "#FFFBF1",
 	borderRadius: 10,
 }
