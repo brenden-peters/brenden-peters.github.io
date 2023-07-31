@@ -6,7 +6,7 @@ module.exports = {
     title: `bpeters dot app`,
     siteUrl: `https://www.bpeters.app`
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-mdx", {
+  plugins: ["gatsby-plugin-sass", "gatsby-plugin-mdx", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",

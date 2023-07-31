@@ -1,8 +1,10 @@
 import * as React from "react"
 import Collapsible from "react-collapsible";
-import "../styles/styles.css"
 
-const pageStyles = { // #bfff96 base page color, #002a15 base text color -- maybe try #FFF4DB as well
+import "../styles/styles.css"
+import "../styles/_Collapsible.css"
+
+const pageStyles = { // #BFFF96 base page color, -- maybe play with #002a15 and #FFF4DB as well
   color: "#002a15", 
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
@@ -42,9 +44,14 @@ const keywordStyle = {
 }
 
 
-const greeting = {
-	message: "Hi, I'm Brenden.",
-	
+const staticContent = {
+	greeting: "Hi, I'm Brenden.",
+	bio: "I build software, tinker with hardware, and enjoy growing (and cooking) tasty food.",
+}
+
+const expandableIndicators = {
+	notOpen: "⌃",
+	open: "⌄"
 }
 
 const expandableBlurbs = [
@@ -63,7 +70,7 @@ const expandableBlurbs = [
 ]
 
 const contact = { /*break out contact blurb into own component for reuse across other pages*/
-	cta: "Let's chat!",
+	cta: "Then let's chat!",
 	email: "send me an email",
 	linkedIn: "reach out on LinkedIn",
 }
@@ -71,7 +78,7 @@ const contact = { /*break out contact blurb into own component for reuse across 
 const greetingHeader = ( 
 	<div>
 		<h1 style={headingStyle}>
-			{greeting.message}
+			{staticContent.greeting}
 		</h1>
 	</div>
 )
@@ -82,21 +89,20 @@ const IndexPage = () => {
     <main style={pageStyles}>
       	{greetingHeader}
       <p style={paragraphStyles}>
-	  	I build software, tinker with hardware, and enjoy growing (and cooking) tasty food. {/*'software' links to github?*/}
+	  	{staticContent.bio} 
       </p>
 	  <p>
 		Are you...
-		<ul style={listStyle}>
-			{expandableBlurbs.map(blurb=> (
-				<li style={listItemStyle}>
-				<Collapsible trigger={blurb.triggerText}>
-					<p>
-						{blurb.blurbText}
-					</p>
-				</Collapsible>
-				</li>
-			))}
-		</ul>
+		{expandableBlurbs.map(blurb=> (
+			<Collapsible 
+				transitionTime={200} 
+				transitionCloseTime={200} 
+				trigger={blurb.triggerText}>
+				<p>
+					{blurb.blurbText}
+				</p>
+			</Collapsible>
+		))}
 		{contact.cta} You can <a href="mailto:contact@bpeters.app">{contact.email}</a> or <a href="https://www.linkedin.com/in/brenden-peters/">{contact.linkedIn}</a> {/*expandable contact details section for screen readers? -- what's the most accessible way*/}
 	  </p>
     </main>
