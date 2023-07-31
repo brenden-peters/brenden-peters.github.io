@@ -3,36 +3,41 @@ import Collapsible from "react-collapsible";
 import "../styles/styles.css"
 
 const pageStyles = { // #bfff96 base page color, #002a15 base text color -- maybe try #FFF4DB as well
-  color: "#002a15", 
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+	color: "#002a15", 
+	padding: 96,
+	fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
+	
 const headingStyle = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
+	marginTop: 0,
+	marginBottom: 64,
+	maxWidth: 320,
 }
 
 const paragraphStyles = {
-  marginBottom: 48,
+	marginBottom: 32,
 }
 
 const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
+	color: "#8A6534",
+	padding: 4,
+	backgroundColor: "#FFF4DB",
+	fontSize: "1.25rem",
+	borderRadius: 4,
 }
 
 const listStyle = {
-  marginBottom: 16,
-  paddingLeft: -5,
+	marginBottom: 16,
+	paddingTop: 5,
+	paddingBottom: 5,
+	paddingLeft: -5,
+	backgroundColor: "#FFFBF1",
+	borderRadius: 10,
 }
 
 const listItemStyle = {
-  fontSize: 16,
-  verticalAlign: "5%",
+	fontSize: 16,
+	verticalAlign: "5%",
 }
 
 const keywordStyle = {
@@ -63,7 +68,7 @@ const expandableBlurbs = [
 ]
 
 const contact = { /*break out contact blurb into own component for reuse across other pages*/
-	cta: "Let's chat!",
+	cta: "Then let's chat!",
 	email: "send me an email",
 	linkedIn: "reach out on LinkedIn",
 }
@@ -84,16 +89,14 @@ const IndexPage = () => {
       <p style={paragraphStyles}>
 	  	I build software, tinker with hardware, and enjoy growing (and cooking) tasty food. {/*'software' links to github?*/}
       </p>
-	  <p>
+	  <p style={paragraphStyles}>
 		Are you...
 		<ul style={listStyle}>
 			{expandableBlurbs.map(blurb=> (
 				<li style={listItemStyle}>
-				<Collapsible trigger={blurb.triggerText}>
 					<p>
-						{blurb.blurbText}
+						{blurb.triggerText}
 					</p>
-				</Collapsible>
 				</li>
 			))}
 		</ul>
