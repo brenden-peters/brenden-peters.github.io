@@ -59,6 +59,14 @@ const expandableBlurbs = [
 		blurbText: "Lorem ipsum dolor emmett otter",
 	},
 	{
+		triggerText: "Looking for help creating readable documentation or technical writing ?",
+		blurbText: "Lorem ipsum dolor emmett otter",
+	},
+	{
+		triggerText: "Seeking early career mentorship?",
+		blurbText: "Lorem ipsum dolor emmett otter",
+	},
+	{
 		triggerText: "Curious about the secrets to making a perfect deli-style sandwich?",
 		blurbText: "Lorem ipsum dolor emmett otter",
 	},
